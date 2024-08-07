@@ -62,7 +62,7 @@ def test():
     bs = 64
     in_c = 3
     z_dim = 64
-    img_dim = 64*64*3   # mnist imgs
+    img_dim = 64*64*3   # rgb imgs
 
     x = torch.randn((bs, in_c, 64, 64))
     x_disc = x.view(-1, img_dim).cuda()
