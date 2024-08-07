@@ -26,7 +26,7 @@ class Generator(nn.Module):
         return out
 
 class Discriminator(nn.Module):
-    def __init__(self, in_c=1):
+    def __init__(self, in_c=3):
         '''
             Args:
             - in_c (int) : number of input image channels to disc
