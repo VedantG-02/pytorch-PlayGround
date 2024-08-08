@@ -19,10 +19,21 @@ tensorboard --logdir=tensorboard/runs
 
 ## 2. DCGAN
 ### Description:
-
+Deep Convolutional GAN uses fully convolutional networks (FCNs) as both generator and discriminator as compared to MLPs in original GAN. Authors also stated architecture guidelines for stable dcgans which are as follows: Replace any pooling layers with (fractional-)strided convolutions in order to let model learn its spatial downsampling itself. Use batchnorm to stabilize training and helping in case of poor initialization they say. Remove fully connected dense layers for deeper architectures. Use ReLU in generator and LeakyReLU in discriminator. Micro/macro training details can be found in the paper itself. I used learning rate equal to 5e-5 (different from authors; they used 2e-4), trained for 50 epochs and the results I obtained (training progress) is shown below in the form of a gif :).
+ 
+Paper Link : [DCGAN paper](https://arxiv.org/abs/1511.06434)
 <p align="center">
 <img src="../assets/gif_dcgan.gif" width="300"/>
 </p>
+
+To run the script, first clone the repo in your machine, and ``cd`` to ``GANs/DCGAN/`` and run;
+```sh
+python train.py
+```
+Or to access the tensorboard (if you don't have it, install using ``pip install tensorboard``), run:
+```sh
+tensorboard --logdir=tensorboard/runs
+```
 
 ## 3. Wasserstein GAN
 ### Description:
