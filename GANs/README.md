@@ -21,3 +21,7 @@ Description (TODO)
 
 ### 4. Wasserstein GAN (with gradient penalty)
 Description (TODO)
+
+<p align="center">
+<img src="../assets/gif_wgan_gp.gif" width="300"/>
+</p>
