@@ -97,4 +97,4 @@ for epoch in range(30):
 if not os.path.isdir(os.path.join('WGAN', 'models')):
     os.mkdir(os.path.join('WGAN', 'models'))
 torch.save(gen, 'WGAN/models/generator.pth')
-torch.save(critic, 'WGAN/models/criticriminator.pth')
+torch.save(critic, 'WGAN/models/critic.pth')
