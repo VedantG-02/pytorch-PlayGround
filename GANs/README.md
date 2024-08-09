@@ -37,14 +37,38 @@ tensorboard --logdir=tensorboard/runs
 
 ## 3. Wasserstein GAN
 ### Description:
+WGAN paper is nicely written with MUCH mathematical analysis and proofs, and proper evidence to support the design decisions made (I still need to understand it more than I do now). Authors covered different distances (and their formulations) to measure 'distance' between prob distributions, one of them being the Earth-Mover (EM) or Wasserstein-1 distance. EM can be viewed as a 'transport plan' to convert one distribution to another by taking out a portion of 'mass' from a certain part and adding it to some other part; in order to change the distribution, which roughly justifies the name it got. Paper also provides an example to show that not all sequences of distributions converge under JSD, KL, reverse KL and TV divergences, but they do converge under the EM distance and why using EM is a better idea. Now, all this works only when the critic (analogous to discriminator but not exactly discriminator as it is not giving a probability of being real/fake as with previous variants) is K-Lipschitz function (more on this in paper), and to guarantee this - weight clamping within [-0.01, 0.01] is done on the weights after every update (which according to authors themselves is a terrible way to enforce a Lipschitz constraint). I used RMSProp to optimize the networks with a learning rate of 5e-5, trained for 30 epochs and the results I obtained (training progress) is shown below in the form of a gif :).
+
+Paper Link : [WGAN paper](https://arxiv.org/abs/1701.07875)
 
 <p align="center">
 <img src="../assets/gif_wgan.gif" width="300"/>
 </p>
 
+To run the script, first clone the repo in your machine, and ``cd`` to ``GANs/WGAN/`` and run;
+```sh
+python train.py
+```
+Or to access the tensorboard (if you don't have it, install using ``pip install tensorboard``), run:
+```sh
+tensorboard --logdir=tensorboard/runs
+```
+
 ## 4. Wasserstein GAN (with gradient penalty)
 ### Description:
+Add here
+
+Paper Link : []()
 
 <p align="center">
 <img src="../assets/gif_wgan_gp.gif" width="300"/>
 </p>
+
+To run the script, first clone the repo in your machine, and ``cd`` to ``GANs/WGAN-GP/`` and run;
+```sh
+python train.py
+```
+Or to access the tensorboard (if you don't have it, install using ``pip install tensorboard``), run:
+```sh
+tensorboard --logdir=tensorboard/runs
+```
